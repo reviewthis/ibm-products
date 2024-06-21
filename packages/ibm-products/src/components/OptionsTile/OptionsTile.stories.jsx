@@ -143,6 +143,19 @@ const TemplateStatic = ({ enabled, ...rest }) => {
   );
 };
 
+const NestedTemplate = (args) => {
+  return (
+    <OptionsTile {...args}>
+      <OptionsTile
+        title='Nested options tile'
+        summary='Summary of the nested options tile'
+      >
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+      </OptionsTile>
+    </OptionsTile>
+  )
+}
+
 export const optionsTile = Template.bind({});
 optionsTile.args = {
   title: 'Language',
@@ -156,4 +169,10 @@ export const staticOptionsTile = TemplateStatic.bind({});
 staticOptionsTile.args = {
   title: 'Hardware acceleration',
   enabled: true,
+};
+
+export const optionsTileNested = NestedTemplate.bind({})
+optionsTileNested.args = {
+  title: 'Parent options tile',
+  summary: 'This is the parent',
 };
